@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yahir Zaele Medina Rioja | Desarrollador Java — Portafolio &amp; CV Web</title>
+    <meta
+      name="description"
+      content="Desarrollador Backend con experiencia en Java, Spring Framework, APIs REST/SOAP y SQL. Portafolio y CV de Yahir Zaele Medina Rioja."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f8f7f2;
+        --black: #0a0a0c;
+        --white: #ffffff;
+        --green: #22c55e;
+        --green-soft: #dcfce7;
+        --yellow: #facc15;
+        --yellow-soft: #fef9c3;
+        --purple: #a855f7;
+        --purple-dark: #7e22ce;
+        --purple-soft: #f3e8ff;
+        --shadow: 6px 6px 0px var(--black);
+        --shadow-lg: 10px 10px 0px var(--black);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        /* Opción B: Fondo de Cuadros (Cuadrícula Neo-Brutalista de Ingeniería) */
+        background-color: var(--bg);
+        background-image:
+          linear-gradient(to right, rgba(10, 10, 12, 0.14) 1.5px, transparent 1.5px),
+          linear-gradient(to bottom, rgba(10, 10, 12, 0.14) 1.5px, transparent 1.5px);
+        background-size: 32px 32px;
+        color: var(--black);
+        font-family: 'Space Grotesk', sans-serif;
+        padding: 1.75rem 1.25rem 4rem;
+        line-height: 1.55;
+      }
+
+      /* Modo alternativo de cuadros tipo damero */
+      body.checker-mode {
+        background-image:
+          linear-gradient(45deg, rgba(168, 85, 247, 0.08) 25%, transparent 25%),
+          linear-gradient(-45deg, rgba(168, 85, 247, 0.08) 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, rgba(168, 85, 247, 0.08) 75%),
+          linear-gradient(-45deg, transparent 75%, rgba(168, 85, 247, 0.08) 75%);
+        background-size: 40px 40px;
+        background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+      }
+
+      /* Bento Grid de 12 columnas */
+      .bento-container {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.4rem;
+      }
+
+      .c-12 { grid-column: span 12; }
+      .c-8  { grid-column: span 8; }
+      .c-7  { grid-column: span 7; }
+      .c-6  { grid-column: span 6; }
+      .c-5  { grid-column: span 5; }
+      .c-4  { grid-column: span 4; }
+
+      /* Tarjeta Neo-Brutalista */
+      .neo-bento {
+        background: var(--white);
+        border: 3.5px solid var(--black);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 1.75rem;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .neo-bento:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Topbar */
+      .topbar {
+        background: var(--black);
+        color: var(--yellow);
+        border: 3.5px solid var(--black);
+        border-radius: 16px;
+        box-shadow: 6px 6px 0px var(--purple);
+        padding: 0.85rem 1.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        font-family: 'Space Mono', monospace;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      /* Botones y Chips Neo-Brutalistas */
+      .btn-neo {
+        background: var(--green);
+        color: var(--black);
+        border: 2.5px solid var(--black);
+        box-shadow: 3.5px 3.5px 0px var(--black);
+        padding: 0.45rem 0.95rem;
+        border-radius: 10px;
+        font-family: 'Space Mono', monospace;
+        font-weight: 700;
+        font-size: 0.8rem;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .btn-neo:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5.5px 5.5px 0px var(--black);
+      }
+
+      /* Sticker inclinado */
+      .sticker {
+        display: inline-block;
+        background: var(--purple);
+        color: var(--white);
+        border: 2.5px solid var(--black);
+        box-shadow: 3px 3px 0px var(--black);
+        padding: 0.25rem 0.85rem;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.78rem;
+        font-weight: 700;
+        border-radius: 8px;
+        margin-bottom: 0.8rem;
+        transform: rotate(-1.5deg);
+      }
+
+      /* Píldoras de sección */
+      .sec-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: 'Space Mono', monospace;
+        font-size: 0.74rem;
+        font-weight: 700;
+        padding: 0.24rem 0.75rem;
+        border: 2.5px solid var(--black);
+        border-radius: 999px;
+        box-shadow: 2.5px 2.5px 0px var(--black);
+        margin-bottom: 0.65rem;
+        background: var(--yellow);
+        color: var(--black);
+      }
+      .sec-pill.green { background: var(--green); }
+      .sec-pill.purple { background: var(--purple); color: var(--white); }
+
+      .bento-title {
+        font-family: 'Syne', sans-serif;
+        font-weight: 800;
+        font-size: 1.45rem;
+        margin-bottom: 1.1rem;
+      }
+
+      /* Sub-tarjetas de Experiencia */
+      .exp-subcard {
+        border: 2.5px solid var(--black);
+        border-radius: 14px;
+        padding: 1.25rem;
+        box-shadow: 4px 4px 0px var(--black);
+        margin-bottom: 1.15rem;
+      }
+      .exp-subcard:last-child { margin-bottom: 0; }
+      .exp-subcard.green-tint { background: var(--green-soft); }
+      .exp-subcard.purple-tint { background: var(--purple-soft); }
+
+      .exp-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .date-tag {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 0.18rem 0.55rem;
+        border: 2px solid var(--black);
+        border-radius: 6px;
+        box-shadow: 2px 2px 0px var(--black);
+        background: var(--yellow);
+      }
+      .date-tag.purple { background: var(--purple); color: var(--white); }
+
+      .bullet-list {
+        padding-left: 1.2rem;
+        font-size: 0.92rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      /* Barras de Habilidades */
+      .skill-row {
+        margin-bottom: 0.95rem;
+      }
+      .skill-row:last-child { margin-bottom: 0; }
+      .skill-head {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.28rem;
+      }
+      .skill-track {
+        height: 20px;
+        background: var(--white);
+        border: 2.5px solid var(--black);
+        border-radius: 8px;
+        box-shadow: 2.5px 2.5px 0px var(--black);
+        overflow: hidden;
+        padding: 2px;
+      }
+      .skill-fill {
+        height: 100%;
+        border-radius: 4px;
+        border-right: 2px solid var(--black);
+        background-image: repeating-linear-gradient(
+          -45deg,
+          rgba(0, 0, 0, 0.12) 0 6px,
+          transparent 6px 12px
+        );
+      }
+
+      /* Tarjetas de Proyectos de GitHub */
+      .proj-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0.85rem 0 1rem;
+      }
+      .tech-tag {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.7rem;
+        font-weight: 700;
+        background: var(--white);
+        color: var(--black);
+        border: 2px solid var(--black);
+        padding: 0.15rem 0.5rem;
+        border-radius: 6px;
+      }
+
+      @media (max-width: 880px) {
+        .c-8, .c-7, .c-6, .c-5, .c-4 { grid-column: span 12; }
+      }
+      @media print {
+        .no-print { display: none !important; }
+        body { padding: 0; background: #fff; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="bento-container">
+      <!-- Top Bar (C-12) -->
+      <header class="topbar c-12 no-print">
+        <span>☕ YAHIR ZAELE MEDINA RIOJA // BACKEND JAVA &amp; SQL DEVELOPER</span>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <button class="btn-neo" style="background: var(--purple); color: #fff" onclick="document.body.classList.toggle('checker-mode')">
+            ▦ Cambiar Textura de Cuadros
+          </button>
+          <a href="https://github.com/YahirZaele" target="_blank" rel="noopener" class="btn-neo" style="background: var(--green)">
+            🐙 GitHub @YahirZaele
+          </a>
+          <button class="btn-neo" style="background: var(--yellow)" onclick="window.print()">
+            🖨️ Descargar / Imprimir PDF
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Principal (C-8) -->
+      <section class="neo-bento c-8" style="background: var(--yellow-soft); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span class="sticker">☕ DESARROLLADOR JAVA • SPRING FRAMEWORK &amp; SQL</span>
+          <h1 style="font-family: 'Syne', sans-serif; font-size: clamp(2.1rem, 4vw, 3rem); font-weight: 800; line-height: 1.05; margin-bottom: 0.75rem;">
+            Yahir Zaele Medina Rioja
+          </h1>
+          <p style="font-size: 1rem; margin-bottom: 1.4rem;">
+            Desarrollador backend con experiencia en <strong>Java</strong>, <strong>Spring Framework</strong> y consumo de consultas complejas en <strong>SQL</strong>. Me apasiona analizar los requerimientos del negocio para diseñar servicios estables, desacoplados y bien probados. Con mentalidad analítica, proactiva y orientada a sumar valor en equipos de desarrollo dentro del sector bancario.
+          </p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+          <a href="tel:5637528653" class="btn-neo" style="background: var(--green)">📞 5637528653</a>
+          <a href="mailto:yahirzaele@hotmail.com" class="btn-neo" style="background: var(--yellow)">✉️ yahirzaele@hotmail.com</a>
+          <a href="https://yahirzaele.github.io/yahir_zaele_cv/" target="_blank" rel="noopener" class="btn-neo" style="background: var(--purple); color: var(--white)">
+            🌐 yahirzaele.github.io/yahir_zaele_cv
+          </a>
+          <a href="https://github.com/YahirZaele" target="_blank" rel="noopener" class="btn-neo" style="background: var(--white)">
+            💻 github.com/YahirZaele
+          </a>
+        </div>
+      </section>
+
+      <!-- Tarjeta Foto (C-4) -->
+      <aside class="neo-bento c-4" style="background: var(--purple-soft); padding: 0.85rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+        <div style="width: 92%; height: 92%; min-height: 280px; max-height: 330px; border: 3.5px solid var(--black); border-radius: 16px; box-shadow: 6px 6px 0px var(--purple); overflow: hidden; background: var(--purple); position: relative;">
+          <img src="./assets/profile.jpg" alt="Yahir Zaele Medina Rioja" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;" />
+          <span class="sec-pill green" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); margin-bottom: 0; white-space: nowrap;">
+            ● DISPONIBLE CDMX / REMOTO
+          </span>
+        </div>
+      </aside>
+
+      <!-- Experiencia Profesional (C-7) -->
+      <section class="neo-bento c-7">
+        <span class="sec-pill green">01 // TRAYECTORIA</span>
+        <h2 class="bento-title">Experiencia Profesional</h2>
+
+        <article class="exp-subcard green-tint">
+          <div class="exp-top">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800;">NISSAN (NIBU)</h3>
+              <div style="font-weight: 700; color: #14532d; font-size: 0.92rem;">Becario CX/IS – Datos y Sistemas • Ciudad de México</div>
+            </div>
+            <span class="date-tag">AGO 2026 – ACTUAL</span>
+          </div>
+          <ul class="bullet-list">
+            <li>Gestión, validación y aseguramiento de calidad sobre bases de datos corporativas de pronósticos (FCST) para múltiples mercados internacionales, ejecutando validaciones avanzadas mediante SQL y garantizando integridad de datos para ciclos críticos de reporte.</li>
+            <li>Desarrollo y mantenimiento de scripts de automatización con Python y SQL para consolidación de datos transaccionales.</li>
+            <li>Administración de seguridad, identidades y políticas de acceso de usuarios dentro de plataformas corporativas.</li>
+          </ul>
+        </article>
+
+        <article class="exp-subcard purple-tint">
+          <div class="exp-top">
+            <div>
+              <h3 style="font-size: 1.15rem; font-weight: 800;">INDEPENDIENTE</h3>
+              <div style="font-weight: 700; color: #581c87; font-size: 0.92rem;">Desarrollador de Software / Backend • Remoto</div>
+            </div>
+            <span class="date-tag purple">FEB 2026 – ACTUAL</span>
+          </div>
+          <ul class="bullet-list">
+            <li>Platico y aterrizo necesidades directamente de los clientes para definir requerimientos, estimar tiempos y planear la arquitectura antes de escribir código.</li>
+            <li>Construyo servicios y lógica de backend modulares, creando endpoints seguros con autenticación JWT y contratos claros para que el consumo de datos sea predecible.</li>
+            <li>Organizo el trabajo y despliegues con Git y flujos automatizados de CI/CD en GitHub, cuidando que cada versión sea estable y trazable.</li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Habilidades Clave (C-5) -->
+      <section class="neo-bento c-5" style="background: var(--white);">
+        <span class="sec-pill purple">02 // STACK TÉCNICO</span>
+        <h2 class="bento-title">Habilidades Clave</h2>
+
+        <div class="skill-row">
+          <div class="skill-head"><span>Java &amp; Spring Boot / Framework</span><span>90%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 90%; background-color: var(--green);"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>SQL (MySQL / PostgreSQL) &amp; FCST</span><span>92%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 92%; background-color: var(--yellow);"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>APIs REST, Swagger &amp; Servicios SOAP</span><span>88%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 88%; background-color: var(--purple);"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>Testing (JUnit 5 / Mockito)</span><span>86%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 86%; background-color: var(--green);"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>Python &amp; Automatización ETL</span><span>82%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 82%; background-color: var(--yellow);"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-head"><span>Git, Maven &amp; GitHub Actions CI/CD</span><span>88%</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 88%; background-color: var(--purple);"></div></div>
+        </div>
+      </section>
+
+      <!-- Encabezado de Proyectos de GitHub (C-12) -->
+      <div class="c-12" style="margin-bottom: -0.6rem;">
+        <span class="sec-pill" style="background: var(--black); color: var(--yellow); font-size: 0.82rem; padding: 0.35rem 1rem;">
+          03 // REPOSITORIOS Y PROYECTOS EN GITHUB (@YahirZaele)
+        </span>
+      </div>
+
+      <!-- Proyecto 1: inventory-api (Público en GitHub) -->
+      <article class="neo-bento proj-card c-6" style="background: var(--yellow);">
+        <div>
+          <span class="sec-pill" style="background: var(--white);">📦 REPO PÚBLICO // JAVA + SPRING BOOT</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.3rem; margin-bottom: 0.45rem;">
+            Inventory API — Gestión de Inventario
+          </h3>
+          <p style="font-size: 0.92rem;">
+            API REST para gestión de inventario desarrollada con <strong>Java 17</strong>, <strong>Spring Boot 3.2.5</strong>, <strong>Spring Data JPA</strong> y <strong>MySQL 8</strong>. Incluye cobertura de pruebas unitarias con <strong>JUnit 5 / Mockito</strong>, documentación interactiva con <strong>OpenAPI / Swagger</strong> y pipeline CI/CD en GitHub Actions.
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">Java 17</span>
+            <span class="tech-tag">Spring Boot 3</span>
+            <span class="tech-tag">MySQL 8</span>
+            <span class="tech-tag">JUnit 5 &amp; Mockito</span>
+            <span class="tech-tag">Swagger</span>
+            <span class="tech-tag">GitHub Actions</span>
+          </div>
+        </div>
+        <a href="https://github.com/YahirZaele/inventory-api" target="_blank" rel="noopener" class="btn-neo" style="background: var(--white); width: 100%; justify-content: center;">
+          🔗 Ver Repositorio en GitHub
+        </a>
+      </article>
+
+      <!-- Proyecto 2: Vicvar TechStore / Multiproveedor (Versiones en Python y TypeScript) -->
+      <article class="neo-bento proj-card c-6" style="background: var(--green);">
+        <div>
+          <span class="sec-pill" style="background: var(--white);">🔐 BACKEND API &amp; DATOS // PYTHON &amp; TYPESCRIPT</span>
+          <h3 style="font-family: 'Syne', sans-serif; font-size: 1.3rem; margin-bottom: 0.45rem;">
+            Vicvar TechStore — Catálogo Multiproveedor &amp; Backend
+          </h3>
+          <p style="font-size: 0.92rem;">
+            Sistema de comercio electrónico y consolidación de catálogos multiproveedor con endpoints protegidos mediante <strong>autenticación JWT</strong>, base de datos relacional <strong>SQL</strong> e ingesta automatizada de listas de precios (<strong>Excel / PDF</strong>). Desarrollado en dos versiones: una arquitectura escrita en <strong>Python</strong> y su evolución en <strong>TypeScript</strong>.
+          </p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">SQL / Base de Datos</span>
+            <span class="tech-tag">REST API &amp; JWT Auth</span>
+            <span class="tech-tag">Procesamiento XLSX/PDF</span>
+          </div>
+        </div>
+        <a href="https://github.com/YahirZaele" target="_blank" rel="noopener" class="btn-neo" style="background: var(--yellow); width: 100%; justify-content: center;">
+          🚧 En GitHub (En proceso de despliegue)
+        </a>
+      </article>
+
+      <!-- Formación Académica (C-8) -->
+      <section class="neo-bento c-8">
+        <span class="sec-pill">04 // EDUCACIÓN</span>
+        <h2 class="bento-title">Formación Académica</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.1rem;">
+          <div style="border: 2.5px solid var(--black); padding: 1.1rem; border-radius: 12px; background: var(--purple-soft); box-shadow: 3.5px 3.5px 0px var(--black);">
+            <span class="date-tag purple" style="display:inline-block; margin-bottom:0.45rem;">EN CURSO • EGRESO PREVISTO 2027</span>
+            <h4 style="font-size: 1.02rem; margin-bottom: 0.25rem;">Ingeniería en Tecnologías y Sistemas de Información</h4>
+            <p style="font-size: 0.88rem;">Universidad del Valle de México (UVM)</p>
+          </div>
+          <div style="border: 2.5px solid var(--black); padding: 1.1rem; border-radius: 12px; background: var(--green-soft); box-shadow: 3.5px 3.5px 0px var(--black);">
+            <span class="date-tag" style="background: var(--green); display:inline-block; margin-bottom:0.45rem;">CONCLUIDO</span>
+            <h4 style="font-size: 1.02rem; margin-bottom: 0.25rem;">Técnico en Telecomunicaciones</h4>
+            <p style="font-size: 0.88rem;">Centro de Estudios Científicos y Tecnológicos N.11 “Wilfrido Massieu”</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Idiomas (C-4) -->
+      <section class="neo-bento c-4" style="background: var(--purple-dark); color: var(--white); display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span class="sec-pill" style="background: var(--yellow);">05 // IDIOMAS</span>
+          <h2 class="bento-title">Comunicación</h2>
+          <div style="background: rgba(0,0,0,0.28); border: 2px solid var(--yellow); border-radius: 10px; padding: 0.75rem; margin-bottom: 0.75rem;">
+            🇲🇽 <strong>Español:</strong> Nativo (100%)
+          </div>
+          <div style="background: rgba(0,0,0,0.28); border: 2px solid var(--green); border-radius: 10px; padding: 0.75rem;">
+            🇺🇸 <strong>Inglés:</strong> Intermedio – Lectura técnica
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
